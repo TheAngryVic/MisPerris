@@ -12,20 +12,38 @@ from django.db import models
 class Region(models.Model):
     descripcionRegion = models.CharField(max_length=90)
 
+    def __str__(self):
+        return self.descripcionRegion
+    
+    class Meta:
+        verbose_name= "Region"
+        verbose_name_plural= "Regiones"
+
+    
+
+
 class Provincia(models.Model):
     descripcionProvincia = models.CharField(max_length=90)
     region = models.ForeignKey(Region,on_delete=models.CASCADE)
+    def __str__(self):
+        return self.descripcionProvincia
 
 class Comuna(models.Model):
     descripcionComuna = models.CharField(max_length=90)
     provincia = models.ForeignKey(Provincia,on_delete=models.CASCADE)
+    def __str__(self):
+        return self.descripcionComuna
 
 
 class Raza(models.Model):
     descripcionRaza = models.CharField(max_length=20)
+    def __str__(self):
+        return self.descripcionRaza
 
 class Estado(models.Model):
     descripcion = models.CharField(max_length=20)
+    def __str__(self):
+        return self.descripcion
 
 class Usuario(models.Model):
     correo = models.CharField(max_length=40)
@@ -36,6 +54,8 @@ class Usuario(models.Model):
     fecha_nacimiento = models.DateField()
     telefono = models.CharField(max_length=8)
     comuna= models.ForeignKey(Comuna,on_delete=models.CASCADE)
+    def __str__(self):
+        return self.correo
 
     
 
@@ -46,6 +66,8 @@ class Mascota(models.Model):
     fecha_nacimientoMascota= models.DateField()
     imagen= models.ImageField()
     estado = models.ForeignKey(Estado, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.nombreMascota
 
 
 

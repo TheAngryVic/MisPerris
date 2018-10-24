@@ -22,3 +22,9 @@ urlpatterns = [
     
 
 ]
+
+#Personalizacion de titulos de admin
+
+admin.site.site_header="Administración de Mis perris"
+admin.site.index_title="Mis perris"
+admin.site.site_title="Adminisración Mis perris"

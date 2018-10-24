@@ -98,6 +98,8 @@
                             <select name="cboRegion" id="cboRegion">
                                 <option value="">Seleccionar</option>
                                 <option value="">EJEMPLO</option>
+                                {% class SeleccionRegion(forms.Form):
+                                    Regiones = forms.ModelChoiceField(queryset=Region.object.all())%}
                                 
                             </select>
                         </td>
