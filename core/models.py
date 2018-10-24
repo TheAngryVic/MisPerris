@@ -10,7 +10,7 @@ from django.db import models
         #return self.nombre
 
 class Region(models.Model):
-    descripcionRegion = models.CharField(max_length=90)
+    descripcionRegion = models.CharField(max_length=90 , verbose_name='Nombre Region')
 
     def __str__(self):
         return self.descripcionRegion
@@ -23,20 +23,20 @@ class Region(models.Model):
 
 
 class Provincia(models.Model):
-    descripcionProvincia = models.CharField(max_length=90)
+    descripcionProvincia = models.CharField(max_length=90, verbose_name='Nombre Provincia')
     region = models.ForeignKey(Region,on_delete=models.CASCADE)
     def __str__(self):
         return self.descripcionProvincia
 
 class Comuna(models.Model):
-    descripcionComuna = models.CharField(max_length=90)
+    descripcionComuna = models.CharField(max_length=90, verbose_name='Nombre comuna')
     provincia = models.ForeignKey(Provincia,on_delete=models.CASCADE)
     def __str__(self):
         return self.descripcionComuna
 
 
 class Raza(models.Model):
-    descripcionRaza = models.CharField(max_length=20)
+    descripcionRaza = models.CharField(max_length=20, verbose_name='Nombre raza')
     def __str__(self):
         return self.descripcionRaza
 

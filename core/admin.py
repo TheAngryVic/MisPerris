@@ -5,6 +5,7 @@ from .models import Region,Provincia,Comuna,Raza,Estado,Usuario,Mascota
 class UserAdmin(admin.ModelAdmin):
     list_display = ('nombre','apellido','fecha_nacimiento','telefono','comuna')
     search_fields= ['comuna','nombre','apellido','fecha_nacimiento','telefono']
+    list_filter = ('comuna',)
 
 class MascotaAdmin(admin.ModelAdmin): 
     list_display = ('nombreMascota','raza','genero','fecha_nacimientoMascota','imagen','estado')
