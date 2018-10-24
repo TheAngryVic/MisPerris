@@ -29,9 +29,17 @@ class Comuna(models.Model):
 
 class Mascota(models.Model):
     nombreMascota = models.CharField(max_length=20)
+    raza = models.ForeignKey(Raza, on_delete=models.CASCADE)
+    genero= models.BinaryField()
+    fecha_nacimientoMascota= models.DateField()
+    imagen= models.ImageField()
+    estado = models.ForeignKey(Estado)
 
 class Raza(models.Model):
     descripcionRaza = models.CharField(max_length=20)
+
+class Estado(models.Model):
+    descripcion = models.CharField(Ma_length=20)
 
 
     
