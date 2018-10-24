@@ -10,14 +10,14 @@ from django.db import models
         #return self.nombre
 
 class Region(models.Model):
-    descripcionRegion = models.CharField(max_length=20)
+    descripcionRegion = models.CharField(max_length=90)
 
 class Provincia(models.Model):
-    descripcionProvincia = models.CharField(max_length=20)
+    descripcionProvincia = models.CharField(max_length=90)
     region = models.ForeignKey(Region,on_delete=models.CASCADE)
 
 class Comuna(models.Model):
-    descripcionComuna = models.CharField(max_length=20)
+    descripcionComuna = models.CharField(max_length=90)
     provincia = models.ForeignKey(Provincia,on_delete=models.CASCADE)
 
 
@@ -25,7 +25,7 @@ class Raza(models.Model):
     descripcionRaza = models.CharField(max_length=20)
 
 class Estado(models.Model):
-    descripcion = models.CharField(Ma_length=20)
+    descripcion = models.CharField(max_length=20)
 
 class Usuario(models.Model):
     correo = models.CharField(max_length=40)
